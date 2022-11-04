@@ -15,14 +15,24 @@ object Util {
     fun checkPermissions(activity: Activity?) {
         if (ContextCompat.checkSelfPermission(
                 activity!!,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
-            )
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+
+                )
             != PackageManager.PERMISSION_GRANTED
             || ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA)
-            != PackageManager.PERMISSION_GRANTED) {
+            != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
+                activity,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            )
+            != PackageManager.PERMISSION_GRANTED
+        ) {
             ActivityCompat.requestPermissions(
                 activity,
-                arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA),
+                arrayOf(
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.CAMERA,
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ),
                 0
             )
         }
