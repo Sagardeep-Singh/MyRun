@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:height="40dp"
             android:gravity="center_vertical"
-            android:text="@string/input_type_title" />
+            android:text="@string/title_input_type" />
 
         <Spinner
             android:id="@+id/input_type_spinner"
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:height="40dp"
             android:gravity="center_vertical"
-            android:text="@string/activity_type_title" />
+            android:text="@string/title_activity_type" />
 
         <Spinner
             android:id="@+id/activity_type_spinner"
@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:text="@string/start_button_text" />
+            android:text="@string/lbl_start" />
 
     </LinearLayout>
 </ScrollView>

@@ -14,8 +14,6 @@
     <string name="lbl_male">Male</string>
     <string name="lbl_class">Class</string>
     <string name="lbl_major">Major</string>
-    <string name="lbl_save">Save</string>
-    <string name="lbl_cancel">Cancel</string>
     <string name="lbl_gender">Gender</string>
 
     <string name="tab_start">Start</string>
@@ -42,31 +40,26 @@
     <!-- Misc. -->
     <string name="webpage_title">Webpage</string>
     <string name="webpage_summary">https://www.sfu.ca/computing.html</string>
-    <string name="title_activity_settings">SettingsActivity</string>
 
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
+    <string name="title_activity_settings">Settings Activity</string>
+    <string name="title_input_type">Input Type</string>
+    <string name="title_activity_type">Activity Type</string>
 
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
+    <string name="lbl_date">Date</string>
+    <string name="lbl_time">Time</string>
+    <string name="lbl_duration">Duration</string>
+    <string name="lbl_distance">Distance</string>
+    <string name="lbl_calories">Calories</string>
+    <string name="lbl_heart_rate">Heart Rate</string>
+    <string name="lbl_comment">Comment</string>
+    <string name="lbl_datetime">Date and Time</string>
 
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <string name="input_type_title">Input Type</string>
-    <string name="activity_type_title">Activity Type</string>
-    <string name="start_button_text">Start</string>
-    <string name="date_lbl">Date</string>
-    <string name="time_lbl">Time</string>
-    <string name="duration_lbl">Duration</string>
-    <string name="distance_lbl">Distance</string>
-    <string name="calories_lbl">Calories</string>
-    <string name="heart_rate_lbl">Heart Rate</string>
-    <string name="comment_lbl">Comment</string>
-    <string name="save_lbl">Save</string>
+    <string name="lbl_start">Start</string>
+    <string name="lbl_save">Save</string>
+    <string name="lbl_delete">Delete</string>
+    <string name="fmt_calories">%d kcal</string>
+    <string name="fmt_distance">%.2f %s</string>
+    <string name="fmt_duration">%d seconds</string>
+    <string name="fmt_heart_rate">%d bpm</string>
+    <string name="fmt_datetime">%s %s</string>
 </resources>

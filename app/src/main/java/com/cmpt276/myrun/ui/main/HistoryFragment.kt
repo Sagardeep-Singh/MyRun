@@ -1,5 +1,6 @@
 package com.cmpt276.myrun.ui.main
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,24 +8,29 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cmpt276.myrun.R
 import com.cmpt276.myrun.model.*
+import com.cmpt276.myrun.ui.ManualEntryEditActivity
 import kotlin.math.roundToInt
 
 /**
  * A fragment representing a list of Items.
  */
-class HistoryFragment : Fragment() {
+class HistoryFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeListener {
 
     private lateinit var adapter: ExerciseRecyclerViewAdapter
+    private lateinit var preferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val view =
             inflater.inflate(R.layout.fragment_exercise_record_history_list, container, false)
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
 
         val database = ExerciseDatabase.getInstance(requireContext())
         val repository = ExerciseRepository(database.exerciseDao())
@@ -43,10 +49,16 @@ class HistoryFragment : Fragment() {
             viewModel.allExercises.observe(viewLifecycleOwner) {
                 adapter.updateList(it)
             }
-
         }
 
+        preferences.registerOnSharedPreferenceChangeListener(this)
+
         return view
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        preferences.unregisterOnSharedPreferenceChangeListener(this)
     }
 
     /**
@@ -72,9 +84,14 @@ class HistoryFragment : Fragment() {
                 "%s: %s, %s %s".format(item.inputType, item.activityType, item.time, item.date)
             holder.summary.text = "%s %s, %s".format(
                 item.distance,
-                "kilometres",
+                preferences.getString("distance_unit", "Kilometers"),
                 durationToString(item.duration),
             )
+
+            holder.itemView.setOnClickListener {
+                val intent = ManualEntryEditActivity.getIntent(requireContext(), item.id)
+                startActivity(intent)
+            }
         }
 
         private fun durationToString(duration: Double): String {
@@ -86,9 +103,17 @@ class HistoryFragment : Fragment() {
 
         override fun getItemCount(): Int = values.size
         fun updateList(it: List<Exercise>?) {
-            adapter.values = it!!
-            adapter.notifyDataSetChanged()
+            if (it != null) {
+                values = it
+                notifyDataSetChanged()
+            }
         }
 
+    }
+
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
+        if (key == "distance_unit") {
+            adapter.notifyDataSetChanged()
+        }
     }
 }

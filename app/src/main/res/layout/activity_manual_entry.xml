@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:height="32dp"
         android:gravity="center_vertical"
-        android:text="@string/date_lbl" />
+        android:text="@string/lbl_date" />
 
     <TextView
         android:id="@+id/time_textview"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:height="32dp"
         android:gravity="center_vertical"
-        android:text="@string/time_lbl" />
+        android:text="@string/lbl_time" />
 
     <TextView
         android:id="@+id/duration_textview"
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:height="32dp"
         android:gravity="center_vertical"
-        android:text="@string/duration_lbl" />
+        android:text="@string/lbl_duration" />
 
     <TextView
         android:id="@+id/distance_textview"
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:height="32dp"
         android:gravity="center_vertical"
-        android:text="@string/distance_lbl" />
+        android:text="@string/lbl_distance" />
 
     <TextView
         android:id="@+id/calories_textview"
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:height="32dp"
         android:gravity="center_vertical"
-        android:text="@string/calories_lbl" />
+        android:text="@string/lbl_calories" />
 
     <TextView
         android:id="@+id/heart_rate_textview"
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:height="32dp"
         android:gravity="center_vertical"
-        android:text="@string/heart_rate_lbl" />
+        android:text="@string/lbl_heart_rate" />
 
     <TextView
         android:id="@+id/comment_textview"
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:height="32dp"
         android:gravity="center_vertical"
-        android:text="@string/comment_lbl" />
+        android:text="@string/lbl_comment" />
 
     <Button
         android:id="@+id/save_button"
@@ -70,5 +70,5 @@
         android:layout_height="wrap_content"
         android:minHeight="48dp"
         android:onClick="onSaveButtonClicked"
-        android:text="@string/save_lbl" />
+        android:text="@string/lbl_save" />
 </LinearLayout>

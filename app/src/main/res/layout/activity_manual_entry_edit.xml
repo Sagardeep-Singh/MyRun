@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="8dp"
+    tools:context=".ui.ManualEntryEditActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:gravity="center_vertical"
+        android:labelFor="@id/input_type_edit_text"
+        android:text="@string/title_input_type" />
+
+    <EditText
+        android:id="@+id/input_type_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:clickable="false"
+        android:focusable="false"
+        android:importantForAutofill="no"
+        android:inputType="none"
+        android:minHeight="48dp"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:gravity="center_vertical"
+        android:labelFor="@id/activity_type_edit_text"
+        android:text="@string/title_activity_type" />
+
+    <EditText
+        android:id="@+id/activity_type_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:clickable="false"
+        android:focusable="false"
+        android:importantForAutofill="no"
+        android:inputType="none"
+        android:minHeight="48dp"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:gravity="center_vertical"
+        android:labelFor="@id/date_time_edit_text"
+        android:text="@string/lbl_datetime" />
+
+    <EditText
+        android:id="@+id/date_time_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:clickable="false"
+        android:focusable="false"
+        android:importantForAutofill="no"
+        android:inputType="datetime"
+        android:minHeight="48dp"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:gravity="center_vertical"
+        android:labelFor="@id/duration_edit_text"
+        android:text="@string/lbl_duration" />
+
+    <EditText
+        android:id="@+id/duration_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:clickable="false"
+        android:focusable="false"
+        android:importantForAutofill="no"
+        android:inputType="none"
+        android:minHeight="48dp"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:gravity="center_vertical"
+        android:labelFor="@id/distance_edit_text"
+        android:text="@string/lbl_distance" />
+
+    <EditText
+        android:id="@+id/distance_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:clickable="false"
+        android:focusable="false"
+        android:importantForAutofill="no"
+        android:inputType="none"
+        android:minHeight="48dp"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:gravity="center_vertical"
+        android:labelFor="@id/calories_edit_text"
+        android:text="@string/lbl_calories" />
+
+    <EditText
+        android:id="@+id/calories_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:clickable="false"
+        android:focusable="false"
+        android:importantForAutofill="no"
+        android:inputType="none"
+        android:minHeight="48dp"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:gravity="center_vertical"
+        android:labelFor="@id/heart_rate_edit_text"
+        android:text="@string/lbl_heart_rate" />
+
+    <EditText
+        android:id="@+id/heart_rate_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:clickable="false"
+        android:focusable="false"
+        android:importantForAutofill="no"
+        android:inputType="none"
+        android:minHeight="48dp"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:gravity="center_vertical"
+        android:labelFor="@id/comment_edit_text"
+        android:text="@string/lbl_comment" />
+
+    <EditText
+        android:id="@+id/comment_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:clickable="false"
+        android:focusable="false"
+        android:importantForAutofill="no"
+        android:inputType="none"
+        android:minHeight="48dp"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+</LinearLayout>

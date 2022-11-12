@@ -15,6 +15,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
+import androidx.preference.PreferenceManager
 import com.cmpt276.myrun.BuildConfig
 import com.cmpt276.myrun.R
 import com.cmpt276.myrun.Util
@@ -43,7 +44,7 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityProfileBinding.inflate(layoutInflater)
-        preferences = getPreferences(MODE_PRIVATE)
+        preferences = PreferenceManager.getDefaultSharedPreferences(this)
 
         Util.checkPermissions(this)
 

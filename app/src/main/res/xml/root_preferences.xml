@@ -1,43 +1,50 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory app:title="@string/account_preferences_header">
 
-        <EditTextPreference
+        <Preference
             app:key="signature"
             app:title="@string/user_profile_title"
-            app:useSimpleSummaryProvider="true"
-            />
+            app:useSimpleSummaryProvider="true">
 
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetClass="com.cmpt276.myrun.ui.ProfileActivity"
+                android:targetPackage="com.cmpt276.myrun" />
+        </Preference>
 
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="post_anonymously"
+            android:summary="@string/privacy_settings_summary"
+            android:title="@string/privacy_settings_title" />
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/additional_settings_header">
 
-        <SwitchPreferenceCompat
-            app:key="sync"
+        <ListPreference
+            app:defaultValue="0"
+            app:entries="@array/units"
+            app:entryValues="@array/units"
+            app:key="unit_preference"
             app:title="@string/unit_preference_title" />
-
-    </PreferenceCategory><PreferenceCategory
-        app:title="@string/messages_header">
-
         <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
-            app:useSimpleSummaryProvider="true"/>
+            android:key="setting_comments"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/comments_title"
+            app:summary="@string/comments_summary"
+            app:useSimpleSummaryProvider="false" />
+    </PreferenceCategory>
 
-    </PreferenceCategory><PreferenceCategory
-        app:title="@string/sync_header">
+    <PreferenceCategory app:title="@string/misc_header">
 
-        <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/sync_title"/>
-
-        <SwitchPreferenceCompat
-            app:key="attachment"
-            app:title="@string/attachment_title"
-            app:summaryOn="@string/attachment_summary_on"
-            app:summaryOff="@string/attachment_summary_off"
-            app:dependency="sync"/>
+        <Preference
+            android:key="settings_webpage"
+            android:summary="@string/webpage_summary"
+            app:singleLineTitle="true"
+            app:title="@string/webpage_title" />
 
     </PreferenceCategory>
 

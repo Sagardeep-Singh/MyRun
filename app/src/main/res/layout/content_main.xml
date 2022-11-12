@@ -23,16 +23,16 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="400dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/ivProfilePhoto"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="200dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="4dp"
                 android:contentDescription="@string/profile_photo_preview"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btnChange"
@@ -199,7 +199,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:onClick="onCancelClicked"
-                android:text="@string/lbl_cancel"
+                android:text="@android:string/cancel"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/btnSave"
