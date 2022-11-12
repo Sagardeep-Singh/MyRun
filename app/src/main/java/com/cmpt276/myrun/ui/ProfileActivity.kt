@@ -1,4 +1,4 @@
-package com.cmpt276.myrun
+package com.cmpt276.myrun.ui
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -15,6 +15,9 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
+import com.cmpt276.myrun.BuildConfig
+import com.cmpt276.myrun.R
+import com.cmpt276.myrun.Util
 import com.cmpt276.myrun.databinding.ActivityProfileBinding
 import java.io.File
 import java.nio.file.Files
@@ -33,13 +36,13 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var profilePictureUri: Uri
     private lateinit var tempPictureUri: Uri
 
-    private lateinit var mainBinding: ActivityProfileBinding
+    private lateinit var binding: ActivityProfileBinding
     private lateinit var preferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mainBinding = ActivityProfileBinding.inflate(layoutInflater)
+        binding = ActivityProfileBinding.inflate(layoutInflater)
         preferences = getPreferences(MODE_PRIVATE)
 
         Util.checkPermissions(this)
@@ -48,8 +51,8 @@ class ProfileActivity : AppCompatActivity() {
         setupTempProfilePictureFile()
         loadUserProfile()
 
-        setContentView(mainBinding.root)
-        setSupportActionBar(mainBinding.toolbar)
+        setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
     }
 
     private fun setupCameraActivityResultCallback() {
@@ -57,7 +60,7 @@ class ProfileActivity : AppCompatActivity() {
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
                 if (result.resultCode == RESULT_OK) {
                     val bitmap = Util.getBitmap(this, tempPictureUri)
-                    mainBinding.contentMain.ivProfilePhoto.setImageBitmap(bitmap)
+                    binding.contentMain.ivProfilePhoto.setImageBitmap(bitmap)
                 }
             }
     }
@@ -84,12 +87,12 @@ class ProfileActivity : AppCompatActivity() {
         val major = preferences.getString("major", "")
         val gender = preferences.getInt("gender", 0)
 
-        mainBinding.contentMain.etName.setText(name)
-        mainBinding.contentMain.etEmail.setText(email)
-        mainBinding.contentMain.etPhone.setText(phone)
-        mainBinding.contentMain.etClass.setText(userClass)
-        mainBinding.contentMain.etMajor.setText(major)
-        mainBinding.contentMain.rgGender.check(gender)
+        binding.contentMain.etName.setText(name)
+        binding.contentMain.etEmail.setText(email)
+        binding.contentMain.etPhone.setText(phone)
+        binding.contentMain.etClass.setText(userClass)
+        binding.contentMain.etMajor.setText(major)
+        binding.contentMain.rgGender.check(gender)
 
         val profilePictureFile =
             File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), ProfilePictureConstants.KEY)
@@ -101,7 +104,7 @@ class ProfileActivity : AppCompatActivity() {
 
         profilePictureFile.let {
             if (it.exists()) {
-                mainBinding.contentMain.ivProfilePhoto.setImageURI(profilePictureUri)
+                binding.contentMain.ivProfilePhoto.setImageURI(profilePictureUri)
             }
         }
 
@@ -109,12 +112,12 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun saveUserProfile() {
         val editor = preferences.edit()
-        editor.putString("name", mainBinding.contentMain.etName.text.toString())
-        editor.putString("email", mainBinding.contentMain.etEmail.text.toString())
-        editor.putString("phone", mainBinding.contentMain.etPhone.text.toString())
-        editor.putString("class", mainBinding.contentMain.etClass.text.toString())
-        editor.putString("major", mainBinding.contentMain.etMajor.text.toString())
-        editor.putInt("gender", mainBinding.contentMain.rgGender.checkedRadioButtonId)
+        editor.putString("name", binding.contentMain.etName.text.toString())
+        editor.putString("email", binding.contentMain.etEmail.text.toString())
+        editor.putString("phone", binding.contentMain.etPhone.text.toString())
+        editor.putString("class", binding.contentMain.etClass.text.toString())
+        editor.putString("major", binding.contentMain.etMajor.text.toString())
+        editor.putInt("gender", binding.contentMain.rgGender.checkedRadioButtonId)
         editor.apply()
 
         tempPictureUri.path?.let { tempPathStr ->

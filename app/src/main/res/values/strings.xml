@@ -21,6 +21,29 @@
     <string name="tab_start">Start</string>
     <string name="tab_history">History</string>
     <string name="tab_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="account_preferences_header">Account Preferences</string>
+    <string name="additional_settings_header">Additional Settings</string>
+    <string name="misc_header">Misc.</string>
+
+    <!-- Account Preferences -->
+    <string name="user_profile_title">Name, Email, Class, etc</string>
+    <string name="user_profile_summary">User Profile</string>
+    <string name="privacy_settings_title">Privacy Settings</string>
+    <string name="privacy_settings_summary">Posting your records anonymously</string>
+
+    <!-- Additional Settings -->
+    <string name="unit_preference_title">Unit Preference</string>
+    <string name="unit_preference_summary">Select the units</string>
+    <string name="comments_title">Comments</string>
+    <string name="comments_summary">Please enter your comments</string>
+
+    <!-- Misc. -->
+    <string name="webpage_title">Webpage</string>
+    <string name="webpage_summary">https://www.sfu.ca/computing.html</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
@@ -35,4 +58,15 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="input_type_title">Input Type</string>
+    <string name="activity_type_title">Activity Type</string>
+    <string name="start_button_text">Start</string>
+    <string name="date_lbl">Date</string>
+    <string name="time_lbl">Time</string>
+    <string name="duration_lbl">Duration</string>
+    <string name="distance_lbl">Distance</string>
+    <string name="calories_lbl">Calories</string>
+    <string name="heart_rate_lbl">Heart Rate</string>
+    <string name="comment_lbl">Comment</string>
+    <string name="save_lbl">Save</string>
 </resources>

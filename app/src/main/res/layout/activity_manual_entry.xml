@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="8dp"
+    android:paddingVertical="8dp"
+    tools:context=".ui.ManualEntryActivity">
+
+    <TextView
+        android:id="@+id/date_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:gravity="center_vertical"
+        android:text="@string/date_lbl" />
+
+    <TextView
+        android:id="@+id/time_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:gravity="center_vertical"
+        android:text="@string/time_lbl" />
+
+    <TextView
+        android:id="@+id/duration_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:gravity="center_vertical"
+        android:text="@string/duration_lbl" />
+
+    <TextView
+        android:id="@+id/distance_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:gravity="center_vertical"
+        android:text="@string/distance_lbl" />
+
+    <TextView
+        android:id="@+id/calories_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:gravity="center_vertical"
+        android:text="@string/calories_lbl" />
+
+    <TextView
+        android:id="@+id/heart_rate_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:gravity="center_vertical"
+        android:text="@string/heart_rate_lbl" />
+
+    <TextView
+        android:id="@+id/comment_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="32dp"
+        android:gravity="center_vertical"
+        android:text="@string/comment_lbl" />
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:onClick="onSaveButtonClicked"
+        android:text="@string/save_lbl" />
+</LinearLayout>

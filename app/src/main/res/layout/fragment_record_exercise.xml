@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.RecordExerciseFragment"/>
+    tools:context=".ui.main.StartFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/input_type_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:height="40dp"
+            android:gravity="center_vertical"
+            android:text="@string/input_type_title" />
+
+        <Spinner
+            android:id="@+id/input_type_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:id="@+id/activity_type_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:height="40dp"
+            android:gravity="center_vertical"
+            android:text="@string/activity_type_title" />
+
+        <Spinner
+            android:id="@+id/activity_type_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <Button
+            android:id="@+id/start_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/start_button_text" />
+
+    </LinearLayout>
+</ScrollView>
