@@ -25,12 +25,13 @@ class ManualEntryEditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val exerciseId = intent.getLongExtra(EXERCISE_ID, -1)
-        val preferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-        val distanceUnits = preferences.getString("distance_units", "km")!!
 
         if (exerciseId == -1L) {
             finish()
         }
+
+        val preferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val distanceUnits = preferences.getString("distance_units", "km")!!
 
         val database = ExerciseDatabase.getInstance(this)
         val repository = ExerciseRepository(database.exerciseDao())
@@ -40,29 +41,43 @@ class ManualEntryEditActivity : AppCompatActivity() {
 
         viewModel.allExercises.observe(this) { exercises ->
             exercises.find { it.id == exerciseId }?.let { exercise ->
-                this.exercise = exercise
-                binding.inputTypeEditText.setText(exercise.inputType)
-                binding.activityTypeEditText.setText(exercise.activityType)
-                binding.caloriesEditText.setText(getString(R.string.fmt_calories).format(exercise.calories))
-                binding.distanceEditText.setText(
-                    getString(R.string.fmt_distance).format(
-                        exercise.distance,
-                        distanceUnits
-                    )
-                )
-                binding.durationEditText.setText(getString(R.string.fmt_duration).format((exercise.duration * 60).roundToInt()))
-                binding.dateTimeEditText.setText(
-                    getString(R.string.fmt_datetime).format(
-                        exercise.date,
-                        exercise.time
-                    )
-                )
-                binding.heartRateEditText.setText(getString(R.string.fmt_heart_rate).format(exercise.heartRate))
-                binding.commentEditText.setText(exercise.comment)
+                setupExercise(exercise, distanceUnits)
             }
         }
 
+
+        // calling the action bar
+        val actionBar: androidx.appcompat.app.ActionBar? = supportActionBar
+
+        // showing the back button in action bar
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+
         setContentView(binding.root)
+    }
+
+    private fun setupExercise(
+        exercise: Exercise,
+        distanceUnits: String
+    ) {
+        this.exercise = exercise
+        binding.inputTypeEditText.setText(exercise.inputType)
+        binding.activityTypeEditText.setText(exercise.activityType)
+        binding.caloriesEditText.setText(getString(R.string.fmt_calories).format(exercise.calories))
+        binding.distanceEditText.setText(
+            getString(R.string.fmt_distance).format(
+                exercise.distance,
+                distanceUnits
+            )
+        )
+        binding.durationEditText.setText(getString(R.string.fmt_duration).format((exercise.duration * 60).roundToInt()))
+        binding.dateTimeEditText.setText(
+            getString(R.string.fmt_datetime).format(
+                exercise.date,
+                exercise.time
+            )
+        )
+        binding.heartRateEditText.setText(getString(R.string.fmt_heart_rate).format(exercise.heartRate))
+        binding.commentEditText.setText(exercise.comment)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -79,6 +94,10 @@ class ManualEntryEditActivity : AppCompatActivity() {
                 finish()
                 true
             }
+            android.R.id.home -> {
+                finish()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -92,6 +111,4 @@ class ManualEntryEditActivity : AppCompatActivity() {
             }
         }
     }
-
-
 }

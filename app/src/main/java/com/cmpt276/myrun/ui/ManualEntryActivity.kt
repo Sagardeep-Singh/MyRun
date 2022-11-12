@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
@@ -39,7 +40,23 @@ class ManualEntryActivity : AppCompatActivity() {
         setupEmptyExercise()
         setupClickListeners()
 
+        title = "Manual Entry"
+
+        // calling the action bar
+        val actionBar: androidx.appcompat.app.ActionBar? = supportActionBar
+
+        // showing the back button in action bar
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+
         setContentView(binding.root)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
+        android.R.id.home -> {
+            finish()
+            true
+        }
+        else -> super.onOptionsItemSelected(item)
     }
 
     private fun setupEmptyExercise() {

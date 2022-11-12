@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
@@ -52,8 +51,13 @@ class ProfileActivity : AppCompatActivity() {
         setupTempProfilePictureFile()
         loadUserProfile()
 
+
+        val actionBar: androidx.appcompat.app.ActionBar? = supportActionBar
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+
+        title = getString(R.string.action_settings)
+
         setContentView(binding.root)
-        setSupportActionBar(binding.toolbar)
     }
 
     private fun setupCameraActivityResultCallback() {
@@ -61,7 +65,7 @@ class ProfileActivity : AppCompatActivity() {
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
                 if (result.resultCode == RESULT_OK) {
                     val bitmap = Util.getBitmap(this, tempPictureUri)
-                    binding.contentMain.ivProfilePhoto.setImageBitmap(bitmap)
+                    binding.ivProfilePhoto.setImageBitmap(bitmap)
                 }
             }
     }
@@ -88,12 +92,12 @@ class ProfileActivity : AppCompatActivity() {
         val major = preferences.getString("major", "")
         val gender = preferences.getInt("gender", 0)
 
-        binding.contentMain.etName.setText(name)
-        binding.contentMain.etEmail.setText(email)
-        binding.contentMain.etPhone.setText(phone)
-        binding.contentMain.etClass.setText(userClass)
-        binding.contentMain.etMajor.setText(major)
-        binding.contentMain.rgGender.check(gender)
+        binding.etName.setText(name)
+        binding.etEmail.setText(email)
+        binding.etPhone.setText(phone)
+        binding.etClass.setText(userClass)
+        binding.etMajor.setText(major)
+        binding.rgGender.check(gender)
 
         val profilePictureFile =
             File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), ProfilePictureConstants.KEY)
@@ -105,7 +109,7 @@ class ProfileActivity : AppCompatActivity() {
 
         profilePictureFile.let {
             if (it.exists()) {
-                binding.contentMain.ivProfilePhoto.setImageURI(profilePictureUri)
+                binding.ivProfilePhoto.setImageURI(profilePictureUri)
             }
         }
 
@@ -113,12 +117,12 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun saveUserProfile() {
         val editor = preferences.edit()
-        editor.putString("name", binding.contentMain.etName.text.toString())
-        editor.putString("email", binding.contentMain.etEmail.text.toString())
-        editor.putString("phone", binding.contentMain.etPhone.text.toString())
-        editor.putString("class", binding.contentMain.etClass.text.toString())
-        editor.putString("major", binding.contentMain.etMajor.text.toString())
-        editor.putInt("gender", binding.contentMain.rgGender.checkedRadioButtonId)
+        editor.putString("name", binding.etName.text.toString())
+        editor.putString("email", binding.etEmail.text.toString())
+        editor.putString("phone", binding.etPhone.text.toString())
+        editor.putString("class", binding.etClass.text.toString())
+        editor.putString("major", binding.etMajor.text.toString())
+        editor.putInt("gender", binding.rgGender.checkedRadioButtonId)
         editor.apply()
 
         tempPictureUri.path?.let { tempPathStr ->
@@ -134,18 +138,15 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
+            android.R.id.home -> {
+                finish()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

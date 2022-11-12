@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.cmpt276.myrun.R
 import com.cmpt276.myrun.databinding.FragmentRecordExerciseBinding
+import com.cmpt276.myrun.ui.GpsEntryActivity
 import com.cmpt276.myrun.ui.ManualEntryActivity
 
 class StartFragment : Fragment() {
@@ -46,11 +47,17 @@ class StartFragment : Fragment() {
     }
 
     private fun onStartButtonClicked() {
-        val intent = ManualEntryActivity.getIntent(
-            requireContext(),
-            viewModel.inputType.value!!,
-            viewModel.activityType.value!!
-        )
+
+        val intent =
+            when (viewModel.inputType.value) {
+                viewModel.inputTypeArray[1] -> GpsEntryActivity.getIntent(requireContext())
+                viewModel.inputTypeArray[2] -> GpsEntryActivity.getIntent(requireContext())
+                else -> ManualEntryActivity.getIntent(
+                    requireContext(), viewModel.inputType.value!!,
+                    viewModel.activityType.value!!
+                )
+            }
+
         startActivity(intent)
     }
 

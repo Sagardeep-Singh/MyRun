@@ -12,57 +12,85 @@
         android:id="@+id/date_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:height="32dp"
+        android:height="48dp"
+        android:clickable="true"
         android:gravity="center_vertical"
-        android:text="@string/lbl_date" />
+        android:hapticFeedbackEnabled="true"
+        android:text="@string/lbl_date"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/time_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:height="32dp"
+        android:height="48dp"
+        android:clickable="true"
         android:gravity="center_vertical"
-        android:text="@string/lbl_time" />
+        android:hapticFeedbackEnabled="true"
+        android:text="@string/lbl_time"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/duration_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:height="32dp"
+        android:height="48dp"
+        android:clickable="true"
         android:gravity="center_vertical"
-        android:text="@string/lbl_duration" />
+        android:hapticFeedbackEnabled="true"
+        android:text="@string/lbl_duration"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/distance_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:height="32dp"
+        android:height="48dp"
+        android:clickable="true"
         android:gravity="center_vertical"
-        android:text="@string/lbl_distance" />
+        android:hapticFeedbackEnabled="true"
+        android:text="@string/lbl_distance"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/calories_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:height="32dp"
+        android:height="48dp"
+        android:clickable="true"
         android:gravity="center_vertical"
-        android:text="@string/lbl_calories" />
+        android:hapticFeedbackEnabled="true"
+        android:text="@string/lbl_calories"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/heart_rate_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:height="32dp"
+        android:height="48dp"
+        android:clickable="true"
         android:gravity="center_vertical"
-        android:text="@string/lbl_heart_rate" />
+        android:hapticFeedbackEnabled="true"
+        android:text="@string/lbl_heart_rate"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/comment_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:height="32dp"
+        android:height="48dp"
+        android:clickable="true"
         android:gravity="center_vertical"
-        android:text="@string/lbl_comment" />
+        android:hapticFeedbackEnabled="true"
+        android:text="@string/lbl_comment"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/save_button"
