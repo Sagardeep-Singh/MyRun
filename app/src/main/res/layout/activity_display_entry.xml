@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingHorizontal="8dp"
-    tools:context=".ui.ManualEntryEditActivity">
+    tools:context=".ui.DisplayEntryActivity">
 
     <TextView
         android:layout_width="match_parent"

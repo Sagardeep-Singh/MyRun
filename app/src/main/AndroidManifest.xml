@@ -5,6 +5,8 @@
     <uses-feature android:name="android.hardware.camera" />
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -17,14 +19,14 @@
         android:theme="@style/Theme.MyRuns"
         tools:targetApi="31">
         <activity
-            android:name=".ui.GpsEntryActivity"
+            android:name=".ui.MapDisplayActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.ManualEntryEditActivity"
+            android:name=".ui.DisplayEntryActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

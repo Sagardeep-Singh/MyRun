@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cmpt276.myrun.R
 import com.cmpt276.myrun.model.*
-import com.cmpt276.myrun.ui.ManualEntryEditActivity
+import com.cmpt276.myrun.ui.DisplayEntryActivity
 import kotlin.math.roundToInt
 
 /**
@@ -89,7 +89,7 @@ class HistoryFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeLi
             )
 
             holder.itemView.setOnClickListener {
-                val intent = ManualEntryEditActivity.getIntent(requireContext(), item.id)
+                val intent = DisplayEntryActivity.getIntent(requireContext(), item.id)
                 startActivity(intent)
             }
         }

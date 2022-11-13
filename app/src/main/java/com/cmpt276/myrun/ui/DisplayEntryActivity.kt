@@ -10,14 +10,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
 import com.cmpt276.myrun.R
-import com.cmpt276.myrun.databinding.ActivityManualEntryEditBinding
+import com.cmpt276.myrun.databinding.ActivityDisplayEntryBinding
 import com.cmpt276.myrun.model.*
 import kotlin.math.roundToInt
 
 
-class ManualEntryEditActivity : AppCompatActivity() {
+class DisplayEntryActivity : AppCompatActivity() {
 
-    private val binding by lazy { ActivityManualEntryEditBinding.inflate(layoutInflater) }
+    private val binding by lazy { ActivityDisplayEntryBinding.inflate(layoutInflater) }
     private lateinit var viewModel: ExerciseViewModel
     private lateinit var exercise: Exercise
 
@@ -106,7 +106,7 @@ class ManualEntryEditActivity : AppCompatActivity() {
         private const val EXERCISE_ID = "exerciseId"
 
         fun getIntent(context: Context, id: Long): Intent {
-            return Intent(context, ManualEntryEditActivity::class.java).apply {
+            return Intent(context, DisplayEntryActivity::class.java).apply {
                 putExtra(EXERCISE_ID, id)
             }
         }

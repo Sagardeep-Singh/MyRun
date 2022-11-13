@@ -5,11 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.cmpt276.myrun.databinding.ActivityGpsEntryBinding
+import com.cmpt276.myrun.databinding.ActivityMapDisplayBinding
 
-class GpsEntryActivity : AppCompatActivity() {
+class MapDisplayActivity : AppCompatActivity() {
 
-    private val binding by lazy { ActivityGpsEntryBinding.inflate(layoutInflater) }
+    private val binding by lazy { ActivityMapDisplayBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +28,6 @@ class GpsEntryActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun getIntent(context: Context) = Intent(context, GpsEntryActivity::class.java)
+        fun getIntent(context: Context) = Intent(context, MapDisplayActivity::class.java)
     }
 }

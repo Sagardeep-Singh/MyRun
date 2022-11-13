@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.preference.PreferenceManager
@@ -32,6 +33,7 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private lateinit var cameraResult: ActivityResultLauncher<Intent>
+    private lateinit var galleryResult: ActivityResultLauncher<Intent>
 
     private lateinit var profilePictureUri: Uri
     private lateinit var tempPictureUri: Uri
@@ -48,6 +50,7 @@ class ProfileActivity : AppCompatActivity() {
         Util.checkPermissions(this)
 
         setupCameraActivityResultCallback()
+        setupGalleryActivityResultCallback()
         setupTempProfilePictureFile()
         loadUserProfile()
 
@@ -65,6 +68,17 @@ class ProfileActivity : AppCompatActivity() {
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
                 if (result.resultCode == RESULT_OK) {
                     val bitmap = Util.getBitmap(this, tempPictureUri)
+                    binding.ivProfilePhoto.setImageBitmap(bitmap)
+                }
+            }
+    }
+
+    private fun setupGalleryActivityResultCallback() {
+        galleryResult =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+                if (result.resultCode == RESULT_OK) {
+                    val bitmap = Util.getBitmap(this, result.data?.data!!)
+                    Util.saveBitmapToFile( bitmap, tempPictureUri)
                     binding.ivProfilePhoto.setImageBitmap(bitmap)
                 }
             }
@@ -152,9 +166,21 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     fun onChangeClicked(view: View) {
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, tempPictureUri)
-        cameraResult.launch(intent)
+        AlertDialog.Builder(this)
+            .setTitle("Change Profile Picture")
+            .setMessage("Choose an option")
+            .setPositiveButton("Camera") { _, _ ->
+                val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, tempPictureUri)
+                cameraResult.launch(intent)
+            }
+            .setNegativeButton("Gallery") { _, _ ->
+                val intent = Intent(Intent.ACTION_PICK)
+                intent.type = "image/*"
+                galleryResult.launch(intent)
+            }
+            .setNeutralButton("Cancel") { _, _ -> }
+            .show()
     }
 
     fun onSaveClicked(view: View) {

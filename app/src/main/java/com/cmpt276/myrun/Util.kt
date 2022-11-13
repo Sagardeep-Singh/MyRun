@@ -10,6 +10,7 @@ import android.graphics.Matrix
 import android.net.Uri
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import java.io.File
 
 object Util {
     fun checkPermissions(activity: Activity?) {
@@ -43,5 +44,12 @@ object Util {
         val matrix = Matrix()
         matrix.setRotate(90f)
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+    }
+
+    fun saveBitmapToFile(bitmap: Bitmap, tempPictureUri: Uri) {
+        val file = tempPictureUri.path?.let { File(it) }
+        file?.outputStream().use { out ->
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out)
+        }
     }
 }
